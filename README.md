@@ -2,7 +2,7 @@
 
 Poloniex Infographic Generator
 
-[preview.png]('preview.png')
+[preview.png]('/runexec/Polotick/blob/master/preview.png')
 
 # Install and Run
 
