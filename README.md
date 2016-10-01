@@ -1,0 +1,2 @@
+# Polotick
+Poloniex Infographic Generator
