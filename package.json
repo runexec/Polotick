@@ -1,0 +1,9 @@
+
+{
+    "name": "nav-ticker-twitter",
+    "dependencies": {
+	"node-horseman" : "3.1.1",
+	"phantomjs" : "2.1.7",
+	"gm" : "1.23.0"
+    }
+}
