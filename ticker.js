@@ -138,8 +138,12 @@ function getHandler (res) {
 			      'bid' : dataN('highestBid'),
 			      'toggle' : change >= 0}
 
+
+		const title = config['PAIR_KEY']
+		      .split('_')[1]
+		      .toUpperCase()
 		
-		const GEN_PAIR = [['NAV', '#EBF5FB', 34, 18, 1],
+		const GEN_PAIR = [[title, '#EBF5FB', 34, 18, 1],
 				  [new Date().toUTCString(), '#FFF', 20, 45, 0.1],
 				  ['Change % ', '#EBF5FB', 20, 22, 0.1],
 				  ['' + ATTR['change'], '#FFF', 24, 40, 2],
