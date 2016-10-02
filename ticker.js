@@ -147,7 +147,7 @@ function getHandler (res) {
 				  [new Date().toUTCString(), '#FFF', 20, 45, 0.1],
 				  ['Change % ', '#EBF5FB', 20, 22, 0.1],
 				  ['' + ATTR['change'], '#FFF', 24, 40, 2],
-				  ['BTC ', '#EBF5FB', 20, 22, 0.1],
+				  ['Volume ', '#EBF5FB', 20, 22, 0.1],
 				  ['' + ATTR['btc'], '#FFF', 24, 40, 2],
 				  ['HIGH ', '#EBF5FB', 20, 22, 0.1],
 				  ['' + ATTR['high'], '#FFF', 24, 40, 2],
