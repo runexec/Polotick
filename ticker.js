@@ -17,6 +17,14 @@ config['IMG_FONT'] = './asssets/Anonymous Pro B.ttf'
 // Final Image Output
 config['IMG_FP'] = '/tmp/out.png'
 
+
+// Color Config
+config['RED'] = '#FEDFDF'
+config['GREEN'] = '#DFFEEB'
+config['YELLOW'] = '#FDFEDF'
+config['TITLE_COLOR'] = '#FEFFEB'
+config['WHITE'] = '#EBF5FB'
+
 // End Configuration
 
 /*
@@ -71,6 +79,12 @@ function moreReadable (o) {
 */
 function dataFloat (d, k) {
     return parseFloat(d[k])
+}
+
+function properColor (n) {
+    return n >= 0 ?
+	config['GREEN'] :
+	config['RED']
 }
 
 function getHandler (res) {
@@ -128,7 +142,7 @@ function getHandler (res) {
 		    return dataFloat(data, k)
 		}
 
-		var change = dataN('percentChange') * 100
+		const change = dataN('percentChange') * 100
 		
 		const ATTR = {'btc' : dataN('baseVolume'),
 			      'high' : dataN('high24hr'),
@@ -138,25 +152,32 @@ function getHandler (res) {
 			      'bid' : dataN('highestBid'),
 			      'toggle' : change >= 0}
 
+		const title_color = config['TITLE_COLOR']
+		const change_color = properColor(ATTR['change'])
+		const volume_color = config['YELLOW']
+		const high_color = config['WHITE']
+		const low_color = config['WHITE']
+		const ask_color = config['RED']
+		const bid_color = config['GREEN']
 
 		const title = config['PAIR_KEY']
 		      .split('_')[1]
 		      .toUpperCase()
 		
-		const GEN_PAIR = [[title, '#EBF5FB', 34, 18, 1],
+		const GEN_PAIR = [[title, config['WHITE'], 34, 25, 1],
 				  [new Date().toUTCString(), '#FFF', 20, 45, 0.1],
-				  ['Change % ', '#EBF5FB', 20, 22, 0.1],
-				  ['' + ATTR['change'], '#FFF', 24, 40, 2],
-				  ['Volume ', '#EBF5FB', 20, 22, 0.1],
-				  ['' + ATTR['btc'], '#FFF', 24, 40, 2],
-				  ['HIGH ', '#EBF5FB', 20, 22, 0.1],
-				  ['' + ATTR['high'], '#FFF', 24, 40, 2],
-				  ['LOW ', '#EBF5FB', 20, 22, 0.1],
-				  ['' + ATTR['low'], '#FFF', 24, 40, 2],
-				  ['ASK ', '#EBF5FB', 20, 22, 0.1],
-				  ['' + ATTR['ask'], '#FFF', 24, 40, 2],
-				  ['BID ', '#EBF5FB', 20, 22, 0.1],
-				  ['' + ATTR['bid'], '#FFF', 24, 20, 2]];
+				  ['CHANGE % ', title_color, 20, 22, 0.1],
+				  ['' + ATTR['change'], change_color, 24, 40, 2],
+				  ['VOLUME ', title_color, 20, 22, 0.1],
+				  ['' + ATTR['btc'], volume_color, 24, 40, 2],
+				  ['HIGH ', title_color, 20, 22, 0.1],
+				  ['' + ATTR['high'], high_color, 24, 40, 2],
+				  ['LOW ', title_color, 20, 22, 0.1],
+				  ['' + ATTR['low'], low_color, 24, 40, 2],
+				  ['BID ', title_color, 20, 22, 0.1],
+				  ['' + ATTR['bid'], bid_color, 24, 40, 2],
+				  ['ASK ', title_color, 20, 22, 0.1],
+				  ['' + ATTR['ask'], ask_color, 24, 20, 2]]
 
 		var xy = []
 		
